@@ -9,12 +9,13 @@ describe('Directive: bc-phone-number', function() {
 
   beforeEach(inject(function($rootScope) {
     scope = $rootScope.$new();
-    scope.$digest();
   }));
 
   it('should make hidden element visible', inject(function($compile) {
     var element = angular.element('<bc-phone-number ng-model="number"></bc-phone-number>');
     element = $compile(element)(scope);
+
+    scope.$digest();
 
     expect(scope.number).toBe(undefined);
   }));
