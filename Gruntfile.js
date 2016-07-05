@@ -21,19 +21,22 @@ module.exports = function(grunt) {
         browsers: ['Chrome']
       }
     },
-    git_changelog: {
-      default: {
-        options: {
-          file: 'Changelog.md',
-          grep_commits: '^fix|^feat|^docs|^style|^refactor|^chore|^test|BREAKING',
-          repo_url: 'https://github.com/blockchain/bc-phone-number',
-          branch_name: 'master'
-        }
+    bump: {
+      options: {
+        files: ['bower.json', 'package.json'],
+        commit: true,
+        commitMessage: 'Release v%VERSION%',
+        commitFiles: ['bower.json', 'package.json'],
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'Version %VERSION%',
+        push: true,
+        pushTo: 'origin'
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('git-changelog');
+  grunt.loadNpmTasks('grunt-bump');
 };
