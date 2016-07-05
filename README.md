@@ -35,3 +35,24 @@ angular.module('myModule', ['bcPhoneNumber', function(bcPhoneNumber) {
 ```
 
 Note that`ng-model` and `is-valid` are scope variables.
+
+## Release
+
+Build a new version:
+
+```sh
+gulp build
+```
+
+Update version in bower.json and package.json and commit:
+
+```sh
+git commit -a -m "Release 5.0.8"
+```
+
+Tag, sign and push:
+
+```sh
+git tag -s v5.0.8 -m "v5.0.8"
+git push --tags
+```
